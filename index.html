@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodePulse - Dev Blog</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            transition: transform 0.5s;
+        }
+
+        .logo:hover {
+            transform: rotate(360deg);
+        }
+
+        .search-bar {
+            flex-grow: 1;
+            margin: 0 20px;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            max-width: 500px;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+            transition: border 0.3s;
+        }
+
+        .search-bar input:focus {
+            border-color: #007BFF;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        .blog-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #777;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            width: 80px;
+            background-color: #fff;
+            border-right: 1px solid #ddd;
+            position: fixed;
+            top: 60px;
+            bottom: 0;
+            transition: all 0.3s ease;
+        }
+        nav:hover{
+            width: 160px;
+        }
+        .content-wrapper{
+            transition: margin-left 0.3s ease;
+            margin-left: 130px;
+        }
+        nav:hover + .content-wrapper{
+            margin-left: 210px;
+
+        }
+        nav a {
+            text-decoration: none;
+            color: #333;
+            padding: 10px 20px;
+            margin: 10px 0;
+            border-radius: 5px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #007BFF;
+            color: #fff;
+        }
+
+        .content-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            gap: 20px; /* Spatiu între secțiuni */
+        }
+
+        .main-content {
+            flex: 3; /* Posturile ocupă mai mult spațiu */
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Spatiu între posturi */
+        }
+
+        .videos-bar {
+            flex: 4; /* Videos-bar ocupă mai puțin spațiu */
+            margin-top: 0; /* Eliminăm distanța de sus */
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            height: fit-content; /* Dimensiunea se ajustează după conținut */
+        }
+
+
+        .post {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 600px;
+            width: 600px;
+        }
+
+        .post:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .post img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .post h2 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .post p {
+            color: #555;
+        }
+        .post p2 {
+            color: #d2d2d2;
+        }
+        .videos-bar {
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            opacity: 1;
+        }
+
+        .videos-bar h3 {
+            margin-bottom: 15px;
+        }
+
+        .videos-bar a {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: #333;
+        }
+        .videos-bar p {
+            font-size: 12px;
+            font-weight: bold;
+            color: #c9c9c9;
+            margin: 8px 0 5px 10px; /* Lipim marginea de marginea din dreapta */
+        }
+        .videos-bar img {
+            width: 120px;
+            height: 80px;
+            border-radius: 10px;
+            margin-right: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #333;
+            color: #fff;
+            margin-top: 20px;
+        }
+        .thumbnail{
+            border: solid;
+            border-color: #cbcbcb;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img class="logo" src="../static/images/logo.jpg" alt="CodePulse Logo">
+        <div class="search-bar">
+            <input id="search-input" type="text" placeholder="Search...">
+        </div>
+        <div class="blog-name">CodePulse 2025</div>
+    </header>
+
+    <nav>
+        <a href="dashboard.html">Home</a>
+        <a href="tags.html">Tags</a>
+        <a href="#">About</a>
+        <a href="#videos">Videos</a>
+    </nav>
+
+    <div class="content-wrapper">
+    <div class="main-content">
+        <div id="post1" class="post">
+            <a href="post1.html">
+                <img src="../static/images/post1.jpg" alt="Blog Post Image">
+            </a>
+            <h2>CodePulse: Where Programming Meets Passion</h2>
+            <p>View the full story of codepulse blog, laugh and learn.</p><br>
+            <p2>16 dec 2024</p2>
+        </div>
+    </div>
+
+    <div id="videos" class="videos-bar">
+        <h3>Videos</h3>
+        <a href="https://www.youtube.com/watch?v=I5kj-YsmWjM" target="_blank">
+            <img class="thumbnail" src="https://img.youtube.com/vi/I5kj-YsmWjM/maxresdefault.jpg" alt="Video Thumbnail">
+            <span>Today's Video</span>
+            <p>Bro Code</p>
+        </a>
+
+        <a href="https://www.youtube.com/watch?v=G3e-cpL7ofc" target="_blank">
+            <img class="thumbnail" src="https://img.youtube.com/vi/G3e-cpL7ofc/maxresdefault.jpg" alt="Video Thumbnail">
+            <span>Course of the week</span>
+            <p>SuperSimpleDev</p>
+        </a>
+
+        <a href="https://www.youtube.com/watch?v=RuNPg-HuEyY" target="_blank">
+            <img class="thumbnail" src="https://img.youtube.com/vi/RuNPg-HuEyY/maxresdefault.jpg" alt="Video Thumbnail">
+            <span>C++ Motivational Video</span>
+            <p>Zyger</p>
+        </a>
+
+        <a href="https://www.youtube.com/watch?v=pXHnLbyDKNQ" target="_blank">
+            <img class="thumbnail" src="https://img.youtube.com/vi/pXHnLbyDKNQ/maxresdefault.jpg" alt="Video Thumbnail">
+            <span>Learn with jokes</span>
+            <p>The Coding Sloth</p>
+        </a>
+    </div>
+</div>
+
+
+    <footer>
+        <p>CodePulse 2025. All rights reserved.</p>
+    </footer>
+
+</body>
+<script>
+
+        // Functionality for search bar
+        document.getElementById("search-input").addEventListener("input", function(event) {
+    const query = event.target.value.toLowerCase(); // Obținem textul introdus
+    const posts = document.querySelectorAll(".post"); // Selectăm toate postările
+
+    let found = false; // Variabilă pentru a verifica dacă am găsit ceva
+
+    posts.forEach(post => {
+        const title = post.querySelector("h2").textContent.toLowerCase(); // Titlul postării
+
+        // Dacă bara de căutare este goală, afișăm toate postările
+        if (query === "") {
+            post.style.display = "block";
+            found = true;
+        }
+        // Altfel, ascundem sau afișăm în funcție de potrivire
+        else if (title.includes(query)) {
+            post.style.display = "block";
+            found = true;
+        } else {
+            post.style.display = "none";
+        }
+    });
+});
+    </script>
+</html>
