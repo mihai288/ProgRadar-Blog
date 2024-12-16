@@ -106,14 +106,43 @@
         .content-wrapper {
             padding: 20px;
             display: flex;
+        }
+
+        .tags-container {
+            position: relative;
+            top: 0;
+            left: 0;
+            display: flex;
             flex-direction: column;
+            gap: 10px;
+            text-align: center;
+            margin-right: 20px;
+        }
+
+        .tags-container p {
+            font-weight: bold;
+        }
+
+        .tags-container .tag {
+            text-decoration: none;
+            color: #333;
+            display: block;
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .tags-container .tag:hover {
+            background-color: #007BFF;
+            color: #fff;
         }
 
         .main-content {
+            flex: 2;
             display: flex;
             flex-direction: column;
             gap: 20px;
-            align-items: center;
         }
 
         .post {
@@ -125,7 +154,7 @@
             border-radius: 10px;
             box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s, box-shadow 0.3s;
-            width: 60%;
+            width: 95%;
         }
 
         .post:hover {
@@ -150,10 +179,13 @@
         }
 
         .videos-bar {
+            flex: 1;
             padding: 20px;
             background-color: #fff;
             border: 1px solid #ddd;
             border-radius: 10px;
+            margin-left: 20px;
+            height: fit-content;
         }
 
         .videos-bar h3 {
@@ -188,76 +220,20 @@
             border-color: #cbcbcb;
         }
 
-        /* Mobile-Friendly Adjustments */
-
-            .menu-toggle {
-                display: block;
-            }
-
-            nav {
-                display: flex;
-                transform: translateX(-100%);
-                transition: transform 0.3s ease-in-out;
-            }
-
-            nav.active {
-                transform: translateX(0);
-            }
-
+        @media (max-width: 768px) {
             .content-wrapper {
-                padding: 10px;
+                flex-direction: column;
             }
 
-            .post {
-                padding: 10px;
-            }
-
-            .post h2 {
-                font-size: 16px;
-            }
-
-            .search-bar input {
-                max-width: 100%;
+            .tags-container {
+                margin-bottom: 20px;
             }
 
             .videos-bar {
-                padding: 10px;
+                margin-left: 0;
             }
-
-            .videos-bar img {
-                width: 80px;
-                height: 60px;
-            }
-        .content-wrapper .tags-container {
-    position: absolute;
-    top: 20px; /* Ajustează pentru a controla distanța față de partea superioară a conținutului */
-    left: 10px; /* Ajustează pentru a poziționa față de marginea stângă */
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-            text-align: center;
-}
-
-.content-wrapper .tags-container .tag {
-    text-decoration: none;
-    color: #333;
-    display: block;
-    padding: 5px 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.content-wrapper .tags-container .tag:hover {
-    background-color: #007BFF;
-    color: #fff;
-}
-
-        .tags-container p{
-            font-weight: bold;
         }
     </style>
-
 </head>
 <body>
     <header>
@@ -277,13 +253,13 @@
     <div class="content-wrapper">
         <div class="tags-container">
             <p>Tags</p>
-            <p>Tags</p>
             <a class="tag" href="post1.html">Latest</a>
             <a class="tag" href="#">Python</a>
             <a class="tag" href="#">C++</a>
             <a class="tag" href="#">AI</a>
             <a class="tag" href="#">Hardware</a>
         </div>
+
         <div class="main-content">
             <div id="post1" class="post">
                 <a href="post1.html">
@@ -314,7 +290,6 @@
     </footer>
 
     <script>
-        // Mobile menu toggle
         const menuToggle = document.querySelector('.menu-toggle');
         const nav = document.querySelector('nav');
 
@@ -322,7 +297,6 @@
             nav.classList.toggle('active');
         });
 
-        // Functionality for search bar
         document.getElementById("search-input").addEventListener("input", function(event) {
             const query = event.target.value.toLowerCase();
             const posts = document.querySelectorAll(".post");
