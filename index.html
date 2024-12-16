@@ -61,7 +61,7 @@
         }
 
         .blog-name {
-            font-size: 20px;
+            font-size: 15px;
             font-weight: bold;
             color: #777;
         }
@@ -228,8 +228,36 @@
                 width: 80px;
                 height: 60px;
             }
+        .content-wrapper .tags-container {
+    position: absolute;
+    top: 20px; /* Ajustează pentru a controla distanța față de partea superioară a conținutului */
+    left: 10px; /* Ajustează pentru a poziționa față de marginea stângă */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+            text-align: center;
+}
 
+.content-wrapper .tags-container .tag {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.content-wrapper .tags-container .tag:hover {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+        .tags-container p{
+            font-weight: bold;
+        }
     </style>
+
 </head>
 <body>
     <header>
@@ -238,17 +266,24 @@
         <div class="search-bar">
             <input id="search-input" type="text" placeholder="Search...">
         </div>
-        <div class="blog-name">ProgRadar 2025</div>
     </header>
 
     <nav>
         <a href="index.html">Home</a>
-        <a href="tags.html">Tags</a>
         <a href="#">About</a>
         <a href="#videos">Videos</a>
     </nav>
 
     <div class="content-wrapper">
+        <div class="tags-container">
+            <p>Tags</p>
+            <p>Tags</p>
+            <a class="tag" href="post1.html">Latest</a>
+            <a class="tag" href="#">Python</a>
+            <a class="tag" href="#">C++</a>
+            <a class="tag" href="#">AI</a>
+            <a class="tag" href="#">Hardware</a>
+        </div>
         <div class="main-content">
             <div id="post1" class="post">
                 <a href="post1.html">
