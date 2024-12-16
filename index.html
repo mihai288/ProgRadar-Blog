@@ -96,7 +96,7 @@
         }
 
         .menu-toggle {
-            display: active;
+            display: none;
             cursor: pointer;
             font-size: 24px;
             background: none;
@@ -154,7 +154,7 @@
             border-radius: 10px;
             box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s, box-shadow 0.3s;
-            width: 95%;
+            width: 92.9%;
         }
 
         .post:hover {
@@ -227,6 +227,7 @@
 
             .tags-container {
                 margin-bottom: 20px;
+                margin-left: 15px;
             }
 
             .videos-bar {
@@ -253,14 +254,26 @@
     <div class="content-wrapper">
         <div class="tags-container">
             <p>Tags</p>
-            <a class="tag" href="post1.html">Latest</a>
-            <a class="tag" href="#">Python</a>
-            <a class="tag" href="#">C++</a>
-            <a class="tag" href="#">AI</a>
-            <a class="tag" href="#">Hardware</a>
+            <a class="tag" href="#" data-tag="">Remove Tags</a>
+            <a class="tag" href="#" data-tag="Latest">Latest</a>
+            <a class="tag" href="#" data-tag="Python">Python</a>
+            <a class="tag" href="#" data-tag="C++">C++</a>
+            <a class="tag" href="#" data-tag="AI">AI</a>
+            <a class="tag" href="#" data-tag="Hardware">Hardware</a>
+            <a class="tag" href="#" data-tag="Tutorial">Tutorial</a>
         </div>
 
         <div class="main-content">
+
+            <div id="post2" class="post">
+                <a href="post2.html">
+                    <img src="images/post2thumbnail.jpg" alt="Blog Post Image">
+                </a>
+                <h2>AI: When is Chat GPT Releasing GPT-5?</h2>
+                <p>GPT-4o released in may 2024, we expect new updates.</p><br>
+                <p>17 Dec 2024</p>
+            </div>
+
             <div id="post1" class="post">
                 <a href="post1.html">
                     <img src="images/post1.jpg" alt="Blog Post Image">
@@ -269,6 +282,7 @@
                 <p>View the full story of ProgRadar blog, laugh and learn.</p><br>
                 <p>16 Dec 2024</p>
             </div>
+
         </div>
 
         <div id="videos" class="videos-bar">
@@ -297,13 +311,28 @@
             nav.classList.toggle('active');
         });
 
-        document.getElementById("search-input").addEventListener("input", function(event) {
-            const query = event.target.value.toLowerCase();
-            const posts = document.querySelectorAll(".post");
+        // Search functionality
+        const searchInput = document.getElementById("search-input");
+        const posts = document.querySelectorAll(".post");
 
+        searchInput.addEventListener("input", function(event) {
+            const query = event.target.value.toLowerCase();
             posts.forEach(post => {
                 const title = post.querySelector("h2").textContent.toLowerCase();
                 post.style.display = title.includes(query) ? "block" : "none";
+            });
+        });
+
+        // Tag click functionality
+        const tags = document.querySelectorAll(".tag");
+
+        tags.forEach(tag => {
+            tag.addEventListener("click", function(event) {
+                event.preventDefault();
+                const tagText = tag.dataset.tag.toLowerCase(); // Get tag text
+                searchInput.value = tagText; // Set the search input value
+                const eventInput = new Event('input'); // Trigger input event
+                searchInput.dispatchEvent(eventInput); // Dispatch input event
             });
         });
     </script>
