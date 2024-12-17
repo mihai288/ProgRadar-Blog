@@ -258,22 +258,35 @@
         .content-wrapper{
             text-align: center;
         }
-        .email, .message, .submit{
-            border:none;
-            box-shadow: 0 0 2px black;
-            border-radius: 8px;
+        .email, .message{
+            border:solid;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-color: #464646;
+            background-color: rgb(33, 31, 31);
+            color: white;
+            font-family: 'Arial', sans-serif;
+        }
+        .message{
+            width: 160px;
         }
         .submit{
             background-color: white;
             width: 50px;
             height: 30px;
+            border:none;
+            width: 100px;
+            border-radius: 8px;
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
         }
         .submit:hover{
-            background-color: #0086bb;
+            background-color: #9a9a9a;
             cursor: pointer;
         }
         .contact {
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgb(33, 31, 31);
             color: white;
             width: 500px;
             height: 300px;
@@ -334,16 +347,14 @@
 >
   <label>
       <h>Contact Us</h><br>
-    Your email: *<br>
-    <input class="email" type="email" name="email"><br><br>
+    <input class="email" type="email" name="email" placeholder="Email"><br><br>
   </label>
   <label>
-    Your message:<br>
-    <textarea class="message" name="message"></textarea>
+    <textarea class="message" name="message" placeholder="Message"></textarea>
   </label>
   <!-- your other form fields go here -->
     <br>
-  <button class="submit" type="submit">Send</button>
+  <button class="submit" type="submit">Submit</button>
 </form>
     </div>
         </div>
