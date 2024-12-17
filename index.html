@@ -1,338 +1,359 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ProgRadar - Dev Blog</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
-            line-height: 1.6;
-        }
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Arial', sans-serif;
+        background-color: #f9f9f9;
+        color: #333;
+        line-height: 1.6;
+      }
 
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 20px;
-            background-color: #fff;
-            border-bottom: 1px solid #ddd;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        background-color: #fff;
+        border-bottom: 1px solid #ddd;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
 
-        .logo {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            transition: transform 0.5s;
-        }
+      .logo {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        transition: transform 0.5s;
+      }
 
-        .logo:hover {
-            transform: rotate(360deg);
-        }
+      .logo:hover {
+        transform: rotate(360deg);
+      }
 
-        .search-bar {
-            flex-grow: 1;
-            margin: 0 10px;
-            position: relative;
-        }
+      .search-bar {
+        flex-grow: 1;
+        margin: 0 10px;
+        position: relative;
+      }
 
-        .search-bar input {
-            width: 100%;
-            max-width: 400px;
-            padding: 8px 10px;
-            border: 1px solid #ddd;
-            border-radius: 20px;
-            box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
-            transition: border 0.3s;
-        }
+      .search-bar input {
+        width: 100%;
+        max-width: 400px;
+        padding: 8px 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        transition: border 0.3s;
+      }
 
-        .search-bar input:focus {
-            border-color: #007BFF;
-            outline: none;
-            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-        }
+      .search-bar input:focus {
+        border-color: #007BFF;
+        outline: none;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+      }
 
-        .blog-name {
-            font-size: 15px;
-            font-weight: bold;
-            color: #777;
-        }
+      .blog-name {
+        font-size: 15px;
+        font-weight: bold;
+        color: #777;
+      }
 
-        nav {
-            display: none;
-            flex-direction: column;
-            align-items: flex-start;
-            padding: 20px;
-            background-color: #fff;
-            position: fixed;
-            top: 60px;
-            left: 0;
-            width: 100px;
-            height: 100%;
-            box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-        }
+      nav {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        background-color: #fff;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100px;
+        height: 100%;
+        box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+      }
 
-        nav a {
-            text-decoration: none;
-            color: #333;
-            padding: 10px 15px;
-            margin: 10px 0;
-            border-radius: 5px;
-            transition: background 0.3s, color 0.3s;
-        }
+      nav a {
+        text-decoration: none;
+        color: #333;
+        padding: 10px 15px;
+        margin: 10px 0;
+        border-radius: 5px;
+        transition: background 0.3s, color 0.3s;
+      }
 
-        nav a:hover {
-            background-color: #007BFF;
-            color: #fff;
-        }
+      nav a:hover {
+        background-color: #007BFF;
+        color: #fff;
+      }
 
-        .menu-toggle {
-            display: none;
-            cursor: pointer;
-            font-size: 24px;
-            background: none;
-            border: none;
-        }
+      .menu-toggle {
+        display: none;
+        cursor: pointer;
+        font-size: 24px;
+        background: none;
+        border: none;
+      }
 
+      .content-wrapper {
+        padding: 20px;
+        display: flex;
+      }
+
+      .tags-container {
+        position: relative;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        margin-right: 20px;
+      }
+
+      .tags-container p {
+        font-weight: bold;
+      }
+
+      .tags-container .tag,
+      .tags-container .contact {
+        text-decoration: none;
+        color: #333;
+        display: block;
+        padding: 5px 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      .tags-container .contact:hover {
+        background-color: #ff0000;
+        color: #fff;
+      }
+
+      .tags-container .tag:hover {
+        background-color: #007BFF;
+        color: #fff;
+      }
+
+      .main-content {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .post {
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+        width: 92.9%;
+      }
+
+      #post3 {
+        border: solid;
+        border-color: #0082ff;
+        border-width: 5px;
+      }
+
+      .post:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .post img {
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 15px;
+      }
+
+      .post h2 {
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      .post p {
+        color: #555;
+      }
+
+      .videos-bar {
+        flex: 1;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        margin-left: 20px;
+        height: fit-content;
+      }
+
+      .videos-bar h3 {
+        margin-bottom: 15px;
+      }
+
+      .videos-bar a {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        text-decoration: none;
+        color: #333;
+      }
+
+      .videos-bar img {
+        width: 100px;
+        height: 70px;
+        border-radius: 10px;
+        margin-right: 10px;
+      }
+
+      footer {
+        text-align: center;
+        padding: 15px;
+        background-color: #333;
+        color: #fff;
+        margin-top: 20px;
+      }
+
+      .thumbnail {
+        border: solid;
+        border-color: #cbcbcb;
+      }
+
+      @media (max-width: 768px) {
         .content-wrapper {
-            padding: 20px;
-            display: flex;
+          flex-direction: column;
         }
 
         .tags-container {
-            position: relative;
-            top: 0;
-            left: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            text-align: center;
-            margin-right: 20px;
-        }
-
-        .tags-container p {
-            font-weight: bold;
-        }
-
-        .tags-container .tag, .tags-container .contact {
-            text-decoration: none;
-            color: #333;
-            display: block;
-            padding: 5px 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .tags-container .contact:hover {
-            background-color: #ff0000;
-            color: #fff;
-        }
-        .tags-container .tag:hover {
-            background-color: #007BFF;
-            color: #fff;
-        }
-
-        .main-content {
-            flex: 2;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .post {
-            display: flex;
-            flex-direction: column;
-            padding: 15px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            width: 92.9%;
-        }
-
-        .post:hover {
-            transform: translateY(-5px);
-            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .post img {
-            width: 100%;
-            border-radius: 10px;
-            margin-bottom: 15px;
-        }
-
-        .post h2 {
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: #333;
-        }
-
-        .post p {
-            color: #555;
+          margin-bottom: 20px;
+          margin-left: 15px;
         }
 
         .videos-bar {
-            flex: 1;
-            padding: 20px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            margin-left: 20px;
-            height: fit-content;
+          margin-left: 0;
         }
-
-        .videos-bar h3 {
-            margin-bottom: 15px;
-        }
-
-        .videos-bar a {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-            text-decoration: none;
-            color: #333;
-        }
-
-        .videos-bar img {
-            width: 100px;
-            height: 70px;
-            border-radius: 10px;
-            margin-right: 10px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 15px;
-            background-color: #333;
-            color: #fff;
-            margin-top: 20px;
-        }
-
-        .thumbnail {
-            border: solid;
-            border-color: #cbcbcb;
-        }
-
-        @media (max-width: 768px) {
-            .content-wrapper {
-                flex-direction: column;
-            }
-
-            .tags-container {
-                margin-bottom: 20px;
-                margin-left: 15px;
-            }
-
-            .videos-bar {
-                margin-left: 0;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <button class="menu-toggle">&#9776;</button>
+      <button class="menu-toggle">&#9776;</button>
+      <a class="logo-press" href="index.html">
         <img class="logo" src="images/logo.png" alt="ProgRadar Logo">
-        <div class="search-bar">
-            <input id="search-input" type="text" placeholder="Search...">
-        </div>
+      </a>
+      <div class="search-bar">
+        <input id="search-input" type="text" placeholder="Search...">
+      </div>
     </header>
-
     <div class="content-wrapper">
-        <div class="tags-container">
-            <a class="contact" href="contact.html">Contact Us</a>
-            <p>Tags</p>
-            <a class="tag" href="#" data-tag="">Remove Tags</a>
-            <a class="tag" href="#" data-tag="Latest">Latest</a>
-            <a class="tag" href="#" data-tag="Python">Python</a>
-            <a class="tag" href="#" data-tag="C++">C++</a>
-            <a class="tag" href="#" data-tag="AI">AI</a>
-            <a class="tag" href="#" data-tag="Hardware">Hardware</a>
-            <a class="tag" href="#" data-tag="Tutorial">Tutorial</a>
+      <div class="tags-container">
+        <a class="contact" href="post1.html">About</a>
+        <a class="contact" href="contact.html">Contact</a>
+        <p>Tags</p>
+        <a class="tag" href="#" data-tag="">Remove Tags</a>
+        <a class="tag" href="#" data-tag="AI: When is Chat GPT Releasing GPT-5?">Latest</a>
+        <a class="tag" href="#" data-tag="Python">Python</a>
+        <a class="tag" href="#" data-tag="C++">C++</a>
+        <a class="tag" href="#" data-tag="AI">AI</a>
+        <a class="tag" href="#" data-tag="Hardware">Hardware</a>
+        <a class="tag" href="#" data-tag="Tutorial">Tutorial</a>
+      </div>
+
+
+      <div class="main-content">
+
+
+        <div id="post3" class="post">
+          <a href="https://discord.gg/43KeYjDdE9">
+            <img src="images/Discord-privacy-tips-that-you-should-use-.jpg" alt="Blog Post Image">
+          </a>
+          <h2>ProgRadar Team: Join progradar.dev Discord Community!</h2>
+          <p>A friendly tech community, you can learn, laugh and network with others.</p>
+          <br>
+          <p>17 Dec 2024</p>
         </div>
 
-        <div class="main-content">
 
-            <div id="post2" class="post">
-                <a href="post2.html">
-                    <img src="images/post2thumbnail.jpg" alt="Blog Post Image">
-                </a>
-                <h2>AI: When is Chat GPT Releasing GPT-5?</h2>
-                <p>GPT-4.0 released in may 2024, so we expect new updates.</p><br>
-                <p>17 Dec 2024</p>
-            </div>
-
-            <div id="post1" class="post">
-                <a href="post1.html">
-                    <img src="images/post1.jpg" alt="Blog Post Image">
-                </a>
-                <h2>ProgRadar: Where Programming Meets Passion</h2>
-                <p>View the full story of ProgRadar blog, laugh and learn.</p><br>
-                <p>16 Dec 2024</p>
-            </div>
-
+        <div id="post2" class="post">
+          <a href="post2.html">
+            <img src="images/post2thumbnail.jpg" alt="Blog Post Image">
+          </a>
+          <h2>AI: When is Chat GPT Releasing GPT-5?</h2>
+          <p>GPT-4.0 released in may 2024, so we expect new updates.</p>
+          <br>
+          <p>17 Dec 2024</p>
         </div>
 
-        <div id="videos" class="videos-bar">
-            <h3>Videos</h3>
-            <a href="https://www.youtube.com/watch?v=I5kj-YsmWjM" target="_blank">
-                <img class="thumbnail" src="https://img.youtube.com/vi/I5kj-YsmWjM/maxresdefault.jpg" alt="Video Thumbnail">
-                <span>Today's Video</span>
-            </a>
 
-            <a href="https://www.youtube.com/watch?v=G3e-cpL7ofc" target="_blank">
-                <img class="thumbnail" src="https://img.youtube.com/vi/G3e-cpL7ofc/maxresdefault.jpg" alt="Video Thumbnail">
-                <span>Course of the Week</span>
-            </a>
+        <div id="post1" class="post">
+          <a href="post1.html">
+            <img src="images/post1.jpg" alt="Blog Post Image">
+          </a>
+          <h2>ProgRadar: Where Programming Meets Passion</h2>
+          <p>View the full story of ProgRadar blog, laugh and learn.</p>
+          <br>
+          <p>16 Dec 2024</p>
         </div>
+      </div>
+
+
+      <div id="videos" class="videos-bar">
+        <h3>Videos</h3>
+
+        <a href="https://www.youtube.com/watch?v=I5kj-YsmWjM" target="_blank">
+          <img class="thumbnail" src="https://img.youtube.com/vi/I5kj-YsmWjM/maxresdefault.jpg" alt="Video Thumbnail">
+          <span>Today's Video</span>
+        </a>
+
+        <a href="https://www.youtube.com/watch?v=G3e-cpL7ofc" target="_blank">
+          <img class="thumbnail" src="https://img.youtube.com/vi/G3e-cpL7ofc/maxresdefault.jpg" alt="Video Thumbnail">
+          <span>Course of the Week</span>
+        </a>
+
+      </div>
     </div>
-
     <footer>
-        <p>ProgRadar 2025. All rights reserved.</p>
+      <p>ProgRadar 2025. All rights reserved.</p>
     </footer>
-
     <script>
-        const menuToggle = document.querySelector('.menu-toggle');
-        const nav = document.querySelector('nav');
-
-        menuToggle.addEventListener('click', () => {
-            nav.classList.toggle('active');
+      const menuToggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('nav');
+      menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('active');
+      });
+      // Search functionality
+      const searchInput = document.getElementById("search-input");
+      const posts = document.querySelectorAll(".post");
+      searchInput.addEventListener("input", function(event) {
+        const query = event.target.value.toLowerCase();
+        posts.forEach(post => {
+          const title = post.querySelector("h2").textContent.toLowerCase();
+          post.style.display = title.includes(query) ? "block" : "none";
         });
-
-        // Search functionality
-        const searchInput = document.getElementById("search-input");
-        const posts = document.querySelectorAll(".post");
-
-        searchInput.addEventListener("input", function(event) {
-            const query = event.target.value.toLowerCase();
-            posts.forEach(post => {
-                const title = post.querySelector("h2").textContent.toLowerCase();
-                post.style.display = title.includes(query) ? "block" : "none";
-            });
+      });
+      // Tag click functionality
+      const tags = document.querySelectorAll(".tag");
+      tags.forEach(tag => {
+        tag.addEventListener("click", function(event) {
+          event.preventDefault();
+          const tagText = tag.dataset.tag.toLowerCase(); // Get tag text
+          searchInput.value = tagText; // Set the search input value
+          const eventInput = new Event('input'); // Trigger input event
+          searchInput.dispatchEvent(eventInput); // Dispatch input event
         });
-
-        // Tag click functionality
-        const tags = document.querySelectorAll(".tag");
-
-        tags.forEach(tag => {
-            tag.addEventListener("click", function(event) {
-                event.preventDefault();
-                const tagText = tag.dataset.tag.toLowerCase(); // Get tag text
-                searchInput.value = tagText; // Set the search input value
-                const eventInput = new Event('input'); // Trigger input event
-                searchInput.dispatchEvent(eventInput); // Dispatch input event
-            });
-        });
+      });
     </script>
-</body>
+  </body>
 </html>
