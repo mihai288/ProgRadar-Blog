@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ProgRadar - Dev Blog</title>
-      <link rel="icon" type="images/logo.png" href="images/logo.png">
+    <link rel="icon" type="images/logo.png" href="images/logo.png">
     <style>
       body {
         margin: 0;
@@ -112,7 +112,6 @@
         position: relative;
         top: 0;
         left: 0;
-        display: flex;
         flex-direction: column;
         gap: 10px;
         text-align: center;
@@ -134,8 +133,28 @@
         transition: background-color 0.3s, color 0.3s;
       }
 
-      .tags-container .contact:hover {
-        background-color: #ff0000;
+      .tags-container .tag {
+        margin-bottom: 10px;
+      }
+
+      .search-bar .contact {
+        text-decoration: none;
+        color: #333;
+        padding: 10px;
+        margin-left: 5px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        display: inline-block;
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      .search-bar #portfolio {
+        border-color: #007BFF;
+        border-width: 2px;
+      }
+
+      .search-bar .contact:hover {
+        background-color: #007BFF;
         color: #fff;
       }
 
@@ -232,9 +251,18 @@
         border-color: #cbcbcb;
       }
 
+      .show-tags-container {
+        display: none;
+      }
+
       @media (max-width: 768px) {
         .content-wrapper {
           flex-direction: column;
+        }
+
+        .show-tags-container {
+          display: flex;
+          justify-content: center;
         }
 
         .tags-container {
@@ -244,6 +272,18 @@
 
         .videos-bar {
           margin-left: 0;
+        }
+
+        .search-bar .contact {
+          margin-top: 5px;
+        }
+
+        .tags-container {
+          display: none;
+        }
+
+        .tags-container .tag {
+          margin-bottom: 0px;
         }
       }
     </style>
@@ -256,12 +296,16 @@
       </a>
       <div class="search-bar">
         <input id="search-input" type="text" placeholder="Search...">
+        <a id="about" class="contact" href="post1.html">About</a>
+        <a id="contact" class="contact" href="contact.html">Contact</a>
+        <a id="portfolio" class="contact" href="portfolio.html">Portfolio</a>
       </div>
     </header>
+    <div class="show-tags-container">
+      <button id="hide-tags" style="padding: 10px; margin-top: 10px; border: 1px solid #ddd; border-radius: 5px; cursor: pointer;">Show Tags</button>
+    </div>
     <div class="content-wrapper">
       <div class="tags-container">
-        <a class="contact" href="post1.html">About</a>
-        <a class="contact" href="contact.html">Contact</a>
         <p>Tags</p>
         <a class="tag" href="#" data-tag="">Remove Tags</a>
         <a class="tag" href="#" data-tag="AI: When is Chat GPT Releasing GPT-5?">Latest</a>
@@ -271,11 +315,8 @@
         <a class="tag" href="#" data-tag="Hardware">Hardware</a>
         <a class="tag" href="#" data-tag="Tutorial">Tutorial</a>
       </div>
-
-
       <div class="main-content">
-
-
+        
         <div id="post3" class="post">
           <a href="https://discord.gg/43KeYjDdE9">
             <img src="images/Discord-privacy-tips-that-you-should-use-.jpg" alt="Blog Post Image">
@@ -285,8 +326,7 @@
           <br>
           <p>17 Dec 2024</p>
         </div>
-
-
+        
         <div id="post2" class="post">
           <a href="post2.html">
             <img src="images/post2thumbnail.jpg" alt="Blog Post Image">
@@ -296,8 +336,7 @@
           <br>
           <p>17 Dec 2024</p>
         </div>
-
-
+        
         <div id="post1" class="post">
           <a href="post1.html">
             <img src="images/post1.jpg" alt="Blog Post Image">
@@ -307,22 +346,23 @@
           <br>
           <p>16 Dec 2024</p>
         </div>
+        
       </div>
-
-
+      
+      
       <div id="videos" class="videos-bar">
         <h3>Videos</h3>
-
+        
         <a href="https://www.youtube.com/watch?v=I5kj-YsmWjM" target="_blank">
           <img class="thumbnail" src="https://img.youtube.com/vi/I5kj-YsmWjM/maxresdefault.jpg" alt="Video Thumbnail">
           <span>Today's Video</span>
         </a>
-
+        
         <a href="https://www.youtube.com/watch?v=G3e-cpL7ofc" target="_blank">
           <img class="thumbnail" src="https://img.youtube.com/vi/G3e-cpL7ofc/maxresdefault.jpg" alt="Video Thumbnail">
           <span>Course of the Week</span>
         </a>
-
+        
       </div>
     </div>
     <footer>
@@ -354,6 +394,12 @@
           const eventInput = new Event('input'); // Trigger input event
           searchInput.dispatchEvent(eventInput); // Dispatch input event
         });
+      });
+      // Hide tags functionality
+      const hideTagsButton = document.getElementById("hide-tags");
+      const tagsContainer = document.querySelector(".tags-container");
+      hideTagsButton.addEventListener("click", function() {
+        tagsContainer.style.display = "flex";
       });
     </script>
   </body>
