@@ -15,7 +15,9 @@
         color: #333;
         line-height: 1.6;
       }
-
+      html {
+            scroll-behavior: smooth; /* Derulare lină */
+      }
       header {
         display: flex;
         align-items: center;
@@ -35,7 +37,11 @@
         border-radius: 10px;
         transition: transform 0.5s;
       }
-
+      #videos{
+        border: solid;
+        border-color: #e00000;
+        border-width: 5px;
+      }
       .logo:hover {
         transform: rotate(360deg);
       }
@@ -148,12 +154,6 @@
         display: inline-block;
         transition: background-color 0.3s, color 0.3s;
       }
-
-      .search-bar #portfolio {
-        border-color: #007BFF;
-        border-width: 2px;
-      }
-
       .search-bar .contact:hover {
         background-color: #007BFF;
         color: #fff;
@@ -255,6 +255,9 @@
       .show-tags-container {
         display: none;
       }
+      .search-bar #videos-scroll {
+        display: none;
+      }
 
       @media (max-width: 768px) {
         .content-wrapper {
@@ -294,6 +297,11 @@
         .tags-container .tag {
           margin-bottom: 0px;
         }
+        .search-bar #videos-scroll {
+          display: inline;
+          border-color: #e00000;
+          border-width: 2px;
+        }
       }
     </style>
   </head>
@@ -305,9 +313,10 @@
       </a>
       <div class="search-bar">
         <input id="search-input" type="text" placeholder="Search...">
+        <a href="#videos" id="videos-scroll" class="contact" href="">Videos</a>
+        <a id="portfolio" class="contact" href="portfolio.html">Portfolio</a>
         <a id="about" class="contact" href="post1.html">About</a>
         <a id="contact" class="contact" href="contact.html">Contact</a>
-        <a id="portfolio" class="contact" href="portfolio.html">Portfolio</a>
       </div>
     </header>
     <div class="show-tags-container">
