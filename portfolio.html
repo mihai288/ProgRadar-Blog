@@ -261,9 +261,6 @@
         border-color: #cbcbcb;
       }
 
-      .show-tags-container {
-        display: none;
-      }
       .search-bar #videos-scroll {
         display: none;
       }
@@ -278,14 +275,7 @@
         border: solid;
         border-color: #ff6a00;
       }
-      @media (max-width: 768px) {
-        .content-wrapper {
-          flex-direction: column;
-        }
-        .search-bar a{
-        font-size: 12px;
-      }
-        .show-tags-container {
+      .show-tags-container {
           display: flex;
           justify-content: center;
         }
@@ -297,6 +287,13 @@
           background-color: #007BFF;
           color: white;
         }
+      @media (max-width: 768px) {
+        .content-wrapper {
+          flex-direction: column;
+        }
+        .search-bar a{
+        font-size: 12px;
+      }
 
         .tags-container {
           margin-bottom: 20px;
@@ -333,13 +330,12 @@
         <img class="logo" src="images/logo.png" alt="ProgRadar Logo">
       </a>
       <div class="search-bar">
-        <a id="portfolio" class="contact" href="index.html">Home</a>
-        <a id="about" class="contact" href="about.html">About</a>
-        <a id="contact" class="contact" href="contact.html">Contact</a>
+        <input id="search-input" type="text" placeholder="Search...">
       </div>
     </header>
+
     <div class="show-tags-container">
-      <button id="hide-tags" style="padding: 10px; margin-top: 10px; border: 1px solid #ddd; border-radius: 5px; cursor: pointer;">Show Tags</button>
+      <button id="home" style="padding: 10px; margin-top: 10px; border: 1px solid #ddd; border-radius: 5px; cursor: pointer;">Home</button>
     </div>
     <div class="content-wrapper">
       <div class="main-content">

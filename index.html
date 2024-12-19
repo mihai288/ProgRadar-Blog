@@ -148,7 +148,6 @@
         border-radius: 5px;
         transition: background-color 0.3s, color 0.3s;
       }
-
       .tags-container .tag {
         margin-bottom: 10px;
       }
@@ -167,7 +166,7 @@
         background-color: #007BFF;
         color: #fff;
       }
-      .tags-container .tag:hover {
+      .tags-container .tag:hover, .tags-container .contact:hover {
         background-color: #007BFF;
         color: #fff;
       }
@@ -269,6 +268,17 @@
       .post a{
         text-decoration: none;
       }
+      .tags-container .contact{
+        margin-top:10px;
+      }
+      .tags-container #videos-scroll{
+        border:solid;
+        border-color: #e00000;
+      }
+      .tags-container #videos-scroll:hover{
+        border:solid;
+        background-color: #e00000;
+      }
       @media (max-width: 768px) {
         .content-wrapper {
           flex-direction: column;
@@ -325,17 +335,17 @@
       </a>
       <div class="search-bar">
         <input id="search-input" type="text" placeholder="Search...">
+      </div>
+    </header>
+    <div class="show-tags-container">
+      <button id="hide-tags" style="padding: 10px; margin-top: 10px; border: 1px solid #ddd; border-radius: 5px; cursor: pointer;">&#x2630</button>
+    </div>
+    <div class="content-wrapper">
+      <div class="tags-container">
         <a href="#videos" id="videos-scroll" class="contact" href="">Videos</a>
         <a id="portfolio" class="contact" href="portfolio.html">Portfolio</a>
         <a id="about" class="contact" href="about.html">About</a>
         <a id="contact" class="contact" href="contact.html">Contact</a>
-      </div>
-    </header>
-    <div class="show-tags-container">
-      <button id="hide-tags" style="padding: 10px; margin-top: 10px; border: 1px solid #ddd; border-radius: 5px; cursor: pointer;">Show Tags</button>
-    </div>
-    <div class="content-wrapper">
-      <div class="tags-container">
         <p>Tags</p>
         <a class="tag" href="#" data-tag="">Remove Tags</a>
         <a class="tag" href="#" data-tag="U.S. Intensifies Scrutiny of Chinese Tech: TP-Link Products Face Potential Ban">Latest</a>
