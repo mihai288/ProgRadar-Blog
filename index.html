@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dev Blog</title>
+    <title>ProgRadar: Tutorials, News, and Essential Resources for Developers</title>
+    <link rel="stylesheet" href="static/design/blog-styles.css">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -14,328 +15,13 @@
     }
     </script>
     <meta name="description" content="Progradar is your go-to programming blog, offering tutorials, guides, and tips for developers. Learn the latest technologies, programming languages, and best practices to improve your coding skills.">
-    <link rel="icon" type="images/logo.png" href="images/logo.png">
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Arial', sans-serif;
-        background-color: #f9f9f9;
-        color: #333;
-        line-height: 1.6;
-      }
-      html {
-            scroll-behavior: smooth; /* Derulare lină */
-      }
-      header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 10px 20px;
-        background-color: #fff;
-        border-bottom: 1px solid #ddd;
-        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-      }
-
-      .logo {
-        width: 40px;
-        height: 40px;
-        border-radius: 10px;
-        transition: transform 0.5s;
-      }
-      #videos{
-        border: solid;
-        border-color: #e00000;
-        border-width: 5px;
-      }
-      .logo:hover {
-        transform: rotate(360deg);
-      }
-
-      .search-bar {
-        flex-grow: 1;
-        margin: 0 10px;
-        position: relative;
-      }
-
-      .search-bar input {
-        width: 100%;
-        max-width: 400px;
-        padding: 8px 10px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        transition: border 0.3s;
-      }
-
-      .search-bar input:focus {
-        border-color: #007BFF;
-        outline: none;
-        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-      }
-
-      .blog-name {
-        font-size: 15px;
-        font-weight: bold;
-        color: #777;
-      }
-
-      nav {
-        display: none;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 20px;
-        background-color: #fff;
-        position: fixed;
-        top: 60px;
-        left: 0;
-        width: 100px;
-        height: 100%;
-        box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-      }
-
-      nav a {
-        text-decoration: none;
-        color: #333;
-        padding: 10px 15px;
-        margin: 10px 0;
-        border-radius: 5px;
-        transition: background 0.3s, color 0.3s;
-      }
-
-      nav a:hover {
-        background-color: #007BFF;
-        color: #fff;
-      }
-
-      .menu-toggle {
-        display: none;
-        cursor: pointer;
-        font-size: 24px;
-        background: none;
-        border: none;
-      }
-
-      .content-wrapper {
-        padding: 20px;
-        display: flex;
-      }
-
-      .tags-container {
-        position: relative;
-        top: 0;
-        left: 0;
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
-        margin-right: 20px;
-      }
-
-      .tags-container p {
-        font-weight: bold;
-      }
-
-      .tags-container .tag,
-      .tags-container .contact {
-        text-decoration: none;
-        color: #333;
-        display: block;
-        padding: 5px 10px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        transition: background-color 0.3s, color 0.3s;
-      }
-      .tags-container .tag {
-        margin-bottom: 10px;
-      }
-
-      .search-bar .contact {
-        text-decoration: none;
-        color: #333;
-        padding: 10px;
-        margin-left: 5px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        display: inline-block;
-        transition: background-color 0.3s, color 0.3s;
-      }
-      .search-bar .contact:hover {
-        background-color: #007BFF;
-        color: #fff;
-      }
-      .tags-container .tag:hover, .tags-container .contact:hover {
-        background-color: #007BFF;
-        color: #fff;
-      }
-
-      .main-content {
-        flex: 2;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-      }
-
-      .post {
-        display: flex;
-        flex-direction: column;
-        padding: 15px;
-        background-color: #fff;
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s, box-shadow 0.3s;
-        width: 92.9%;
-      }
-
-      #post3 {
-        border: solid;
-        border-color: #0082ff;
-        border-width: 5px;
-      }
-
-      .post:hover {
-        transform: translateY(-5px);
-        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-      }
-
-      .post img {
-        width: 100%;
-        max-height: 460px;
-        border-radius: 10px;
-        margin-bottom: 15px;
-      }
-
-      .post h1 {
-        font-size: 23px;
-        margin-bottom: 10px;
-        color: #333;
-      }
-
-      .post p {
-        color: #555;
-      }
-
-      .videos-bar {
-        flex: 1;
-        padding: 20px;
-        background-color: #fff;
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        margin-left: 20px;
-        height: fit-content;
-      }
-
-      .videos-bar h3 {
-        margin-bottom: 15px;
-      }
-
-      .videos-bar a {
-        display: flex;
-        align-items: center;
-        margin-bottom: 10px;
-        text-decoration: none;
-        color: #333;
-      }
-
-      .videos-bar img {
-        width: 100px;
-        height: 70px;
-        border-radius: 10px;
-        margin-right: 10px;
-      }
-
-      footer {
-        text-align: center;
-        padding: 15px;
-        background-color: #333;
-        color: #fff;
-        margin-top: 20px;
-      }
-
-      .thumbnail {
-        border: solid;
-        border-color: #cbcbcb;
-      }
-
-      .show-tags-container {
-        display: none;
-      }
-      .search-bar #videos-scroll {
-        display: none;
-      }
-      .post a{
-        text-decoration: none;
-      }
-      .tags-container .contact{
-        margin-top:10px;
-      }
-      .tags-container #videos-scroll{
-        border:solid;
-        border-color: #e00000;
-      }
-      .tags-container #videos-scroll:hover{
-        border:solid;
-        background-color: #e00000;
-      }
-      .post img{
-
-      }
-      @media (max-width: 768px) {
-        .content-wrapper {
-          flex-direction: column;
-        }
-        .search-bar a{
-        font-size: 12px;
-      }
-        .show-tags-container {
-          display: flex;
-          justify-content: center;
-        }
-        .show-tags-container button {
-          background-color: white;
-          transition: all 0.3s ease;
-        }
-        .show-tags-container button:hover {
-          background-color: #007BFF;
-          color: white;
-        }
-
-        .tags-container {
-          margin-bottom: 20px;
-          margin-left: 15px;
-        }
-
-        .videos-bar {
-          margin-left: 0;
-        }
-
-        .search-bar .contact {
-          margin-top: 5px;
-        }
-
-        .tags-container {
-          display: none;
-        }
-
-        .tags-container .tag {
-          margin-bottom: 0px;
-        }
-        .search-bar #videos-scroll {
-          display: inline;
-          border-color: #e00000;
-          border-width: 2px;
-        }
-      }
-    </style>
+    <link rel="icon" type="images/logo.png" href="static/images/logo.png">
   </head>
   <body>
     <header>
       <button class="menu-toggle">&#9776;</button>
       <a class="logo-press" href="index.html">
-        <img class="logo" src="images/logo.png" alt="ProgRadar Logo">
+        <img class="logo" src="static/images/logo.png" alt="ProgRadar Logo">
       </a>
       <div class="search-bar">
         <input id="search-input" type="text" placeholder="Search...">
@@ -362,7 +48,7 @@
       <div class="main-content">
         <div id="post3" class="post">
           <a href="https://discord.gg/43KeYjDdE9">
-            <img src="images/Discord-privacy-tips-that-you-should-use-.jpg" alt="Blog Post Image">
+            <img src="static/images/Discord-privacy-tips-that-you-should-use-.jpg" alt="Blog Post Image">
           </a>
           <h1>ProgRadar Team: Join progradar.dev Discord Community!</h1>
           <p>A friendly tech community, you can learn, laugh and network with others.</p>
@@ -370,11 +56,12 @@
           <p>17 Dec 2024</p>
         </div>
 
+
         <h1>ProgRadar Feed</h1>
 
         <div id="post5" class="post">
           <a href="post/android-auto-update.html">
-            <img src="images/android_auto.jpg" alt="Blog Post Image">
+            <img src="static/images/android_auto.jpg" alt="Blog Post Image">
             <h1>Tech: Android Auto 13.4.6450: Everything You Need to Know About the Latest Update</h1>
             <p>Discover the highlights of Android Auto 13.4.6450, released on December 19, 2024. Learn about the latest features, bug fixes, and enhancements designed to elevate your driving experience. Stay updated on how this version improves connectivity, navigation, and overall usability for Android Auto users worldwide.</p>
             <br>
@@ -383,7 +70,7 @@
         </div>
 
         <div id="post4" class="post">
-          <img src="images/tplinkUS.jpg" alt="Blog Post Image">
+          <img src="static/images/tplinkUS.jpg" alt="Blog Post Image">
           <h1>Tech: U.S. Intensifies Scrutiny of Chinese Tech: TP-Link Products Face Potential Ban</h1>
           <p>The U.S. government is considering a ban on TP-Link products as part of a wider initiative to examine Chinese technology firms for potential security concerns. Similar measures have previously been taken against major companies like Huawei and ZTE, which faced allegations of endangering national security through their telecom equipment.</p>
           <br>
@@ -392,7 +79,7 @@
 
         <div id="post2" class="post">
           <a href="post/chat-gpt-5.0-release.html">
-            <img src="images/post2thumbnail.jpg" alt="Blog Post Image">
+            <img src="static/images/post2thumbnail.jpg" alt="Blog Post Image">
             <h1>AI: When is Chat GPT Releasing GPT-5?</h1>
             <p>GPT-4.0 released in may 2024, so we expect new updates.</p>
             <br>
@@ -402,7 +89,7 @@
 
         <div id="post1" class="post">
           <a href="about.html">
-            <img src="images/post1.jpg" alt="Blog Post Image">
+            <img src="static/images/post1.jpg" alt="Blog Post Image">
             <h1>ProgRadar: Where Programming Meets Passion</h1>
             <p>View the full story of ProgRadar blog, laugh and learn.</p>
             <br>

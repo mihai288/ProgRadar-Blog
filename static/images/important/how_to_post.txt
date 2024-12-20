@@ -1,0 +1,6 @@
+1. Make new post in index.html
+2. Modify latest tag in index.html
+3. Make new html and write the post
+4. Modify the title and meta description in new html
+5. Add the new html on sitemap.xml
+6. Verify and change the post date to today (on index.html and new html)
