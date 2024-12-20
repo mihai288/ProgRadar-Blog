@@ -22,9 +22,7 @@
         top: 0;
         z-index: 1000;
       }
-        .post h2{
-            color: black;
-        }
+
       .logo {
         width: 40px;
         height: 40px;
@@ -267,8 +265,8 @@
         border:solid;
         background-color: #e00000;
       }
-      .post img{
-
+      .post h2{
+          color:black;
       }
       @media (max-width: 768px) {
         .content-wrapper {
