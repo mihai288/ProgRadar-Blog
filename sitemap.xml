@@ -26,16 +26,21 @@
     <url>
         <loc>https://www.progradar.dev/post/chat-gpt-5.0-release.html</loc>
         <lastmod>2024-12-20</lastmod>
-        <priority>0.8</priority>
+        <priority>1</priority>
     </url>
     <url>
         <loc>https://www.progradar.dev/post/android-auto-update.html</loc>
         <lastmod>2024-12-20</lastmod>
-        <priority>0.8</priority>
+        <priority>1</priority>
     </url>
      <url>
         <loc>https://www.progradar.dev/post/motorola-us-ban.html</loc>
         <lastmod>2024-12-21</lastmod>
-        <priority>0.8</priority>
+        <priority>1</priority>
+    </url>
+    <url>
+        <loc>https://www.progradar.dev/post/android-16-developer-preview-2.html</loc>
+        <lastmod>2024-12-21</lastmod>
+        <priority>1</priority>
     </url>
 </urlset>
