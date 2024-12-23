@@ -159,7 +159,10 @@
       .tags-container .tag {
         margin-bottom: 10px;
       }
-
+      #discord{
+          border-color: #007BFF;
+          border-width: 2px;
+      }
       .search-bar .contact {
         text-decoration: none;
         color: #333;
