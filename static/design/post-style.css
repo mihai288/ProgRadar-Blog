@@ -248,19 +248,11 @@
         color: #444444;
           font-weight: none;
       }
-        pre {
-            white-space: pre-wrap;       /* Allows line breaks */
-            word-wrap: break-word;       /* Breaks long words */
-            overflow-x: auto;            /* Enables horizontal scrolling */
-            max-width: 100%;             /* Ensures it stays within container */
-        }
       @media (max-width: 768px) {
         .post_thumbnail {
           width: 270px;
           height: 230px;
         }
-
-        .content-wrapper {}
 
         .content-wrapper h {
           font-size: 20px;
