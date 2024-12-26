@@ -6,7 +6,9 @@
         color: #333;
         line-height: 1.6;
       }
-
+    .show-content-right{
+        display: flex;
+    }
       header {
         display: flex;
         align-items: center;
@@ -19,7 +21,9 @@
         top: 0;
         z-index: 1000;
       }
-
+        .post_thumbnail{
+            box-shadow: 0 0 5px #000000;
+        }
       .logo {
         width: 40px;
         height: 40px;
@@ -145,8 +149,8 @@
       .videos-bar {
         padding: 20px;
         background-color: #fff;
-        border: 1px solid #ddd;
-        border-radius: 10px;
+        border:none;
+        border-radius: 0px;
       }
 
       .videos-bar h3 {
@@ -266,3 +270,6 @@
           white-space: normal;
           word-wrap: break-word;
         }
+        .show-content-right{
+        flex-direction: column;
+    }

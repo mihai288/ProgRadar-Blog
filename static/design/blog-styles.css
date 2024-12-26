@@ -28,11 +28,6 @@
         border-radius: 10px;
         transition: transform 0.5s;
       }
-      #videos{
-        border: solid;
-        border-color: #e00000;
-        border-width: 5px;
-      }
       .logo:hover {
         transform: rotate(360deg);
       }
@@ -54,9 +49,6 @@
           border: solid;
           border: 1px solid #ddd;
           text-align: center;
-      }
-      .feed-control #videos-scroll{
-          border: 2px solid #ff0000;
       }
       .feed-control #videos-scroll:hover{
           border: 2px solid #007BFF;
@@ -144,6 +136,7 @@
         gap: 10px;
         text-align: center;
         margin-right: 20px;
+          margin-top: 7px;
       }
 
       .tags-container .tag,
@@ -158,10 +151,6 @@
       }
       .tags-container .tag {
         margin-bottom: 10px;
-      }
-      #discord{
-          border-color: #007BFF;
-          border-width: 2px;
       }
       .search-bar .contact {
         text-decoration: none;
@@ -210,7 +199,6 @@
       }
 
       .post:hover {
-        transform: translateY(-5px);
         box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
       }
 
@@ -289,10 +277,6 @@
       .tags-container .contact{
         margin-top:10px;
       }
-      .tags-container #videos-scroll{
-        border:solid;
-        border-color: #e00000;
-      }
       .tags-container #videos-scroll:hover{
         border:solid;
         background-color: #e00000;
@@ -358,7 +342,6 @@
         }
         .search-bar #videos-scroll {
           display: inline;
-          border-color: #e00000;
           border-width: 2px;
         }
         .main-content {
