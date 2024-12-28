@@ -188,8 +188,9 @@
         border: 1px solid #ddd;
         border-radius: 10px;
         box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s, box-shadow 0.3s;
+        transition:;
         width: 92.9%;
+          margin-left: 15px;
       }
 
       #post3 {
@@ -287,7 +288,11 @@
       .contact{
             font-size: 12px;
           font-weight: bold;
+
         }
+      #challanges{
+          margin-bottom: 20px;
+      }
       @media (max-width: 768px) {
         .content-wrapper {
           flex-direction: column;
@@ -297,8 +302,11 @@
         }
           .post{
           width: 92.9%;
+              margin-left: 0px;
           }
-
+        #challanges{
+        margin-top: 20px;
+      }
         .search-bar a{
         font-size: 12px;
       }
