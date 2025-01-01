@@ -50,11 +50,6 @@
           border: 1px solid #ddd;
           text-align: center;
       }
-      .feed-control #videos-scroll:hover{
-          border: 2px solid #007BFF;
-          background-color: #007BFF;
-          color: #fff;
-      }
       .feed-control a:hover{
           background-color: #007BFF;
           color: #fff;
